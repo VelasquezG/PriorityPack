@@ -382,3 +382,10 @@ td {
     }
 
 }
+
+.brand-logo {
+    width: 280px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}

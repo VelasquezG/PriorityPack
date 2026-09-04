@@ -10,9 +10,6 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>PriorityPack</title>
-
-
     <link
         rel="stylesheet"
         href="{{ url_for(
@@ -35,10 +32,14 @@
 
         <header class="header">
 
-            <h1>
-                PriorityPack
-            </h1>
-
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/prioritypack-logo.png'
+                ) }}"
+                alt="PriorityPack"
+                class="brand-logo"
+            >
 
             <p>
                 Priorización algorítmica de paquetes
