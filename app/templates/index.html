@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PriorityPack</title>
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for(
+            'static',
+            filename='css/styles.css'
+        ) }}"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="container">
+
+
+        <!-- ==================================================
+             ENCABEZADO
+        =================================================== -->
+
+        <header class="header">
+
+            <h1>
+                PriorityPack
+            </h1>
+
+
+            <p>
+                Priorización algorítmica de paquetes
+                para optimizar el procesamiento de envíos.
+            </p>
+
+        </header>
+
+
+
+        <!-- ==================================================
+             CARGA DEL ARCHIVO
+        =================================================== -->
+
+        <section class="card">
+
+            <h2>
+                Cargar información de envíos
+            </h2>
+
+
+            <p class="description">
+
+                Selecciona un archivo CSV con la información
+                de los envíos que deseas procesar.
+
+            </p>
+
+
+            <form
+                id="uploadForm"
+                enctype="multipart/form-data"
+            >
+
+
+                <div class="upload-container">
+
+                    <input
+                        type="file"
+                        id="csvFile"
+                        name="file"
+                        accept=".csv"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="processButton"
+                >
+                    Generar priorización
+                </button>
+
+
+            </form>
+
+
+            <div
+                id="status"
+                class="status"
+            ></div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             RESULTADOS
+        =================================================== -->
+
+        <section
+            id="results"
+            class="results hidden"
+        >
+
+
+            <h2>
+                Resultados del procesamiento
+            </h2>
+
+
+
+            <!-- ==================================================
+                 DESCARGA
+            =================================================== -->
+
+            <div class="download-container">
+
+                <a
+                    href="/download"
+                    class="download-button"
+                >
+                    Descargar CSV priorizado
+                </a>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 MÉTRICAS
+            =================================================== -->
+
+            <div class="metrics">
+
+
+                <div class="metric-card">
+
+                    <span class="metric-title">
+                        Total de envíos
+                    </span>
+
+
+                    <strong id="totalShipments">
+                        -
+                    </strong>
+
+                </div>
+
+
+
+                <div class="metric-card">
+
+                    <span class="metric-title">
+                        Cálculo de prioridad
+                    </span>
+
+
+                    <strong id="priorityTime">
+                        -
+                    </strong>
+
+                </div>
+
+
+
+                <div class="metric-card">
+
+                    <span class="metric-title">
+                        Merge Sort
+                    </span>
+
+
+                    <strong id="mergeTime">
+                        -
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 DISTRIBUCIÓN
+            =================================================== -->
+
+            <div class="card">
+
+
+                <h3>
+                    Distribución de prioridades
+                </h3>
+
+
+                <div
+                    id="priorityDistribution"
+                    class="distribution"
+                ></div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TOP 10
+            =================================================== -->
+
+            <div class="card">
+
+
+                <h3>
+                    Envíos con mayor prioridad
+                </h3>
+
+
+                <div class="table-container">
+
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Order ID
+                                </th>
+
+                                <th>
+                                    Score
+                                </th>
+
+                                <th>
+                                    Prioridad
+                                </th>
+
+                                <th>
+                                    Tráfico
+                                </th>
+
+                                <th>
+                                    Clima
+                                </th>
+
+                                <th>
+                                    Área
+                                </th>
+
+                                <th>
+                                    Hora
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="shipmentsTable"
+                        ></tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ======================================================
+         JAVASCRIPT
+    ======================================================= -->
+
+    <script
+        src="{{ url_for(
+            'static',
+            filename='js/app.js'
+        ) }}"
+    ></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+# Metodología
+
+Pendiente de definir.
