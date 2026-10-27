@@ -2,390 +2,479 @@
     box-sizing: border-box;
 }
 
-
 body {
-
     margin: 0;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     background: #f4f6f8;
-
     color: #1f2937;
 }
 
-
 .container {
-
     width: 90%;
-
     max-width: 1200px;
-
     margin: 0 auto;
-
     padding: 40px 0;
 }
 
-
 /* ============================================================
-   HEADER
+   ENCABEZADO
    ============================================================ */
 
 .header {
-
     text-align: center;
-
     margin-bottom: 35px;
 }
 
-
 .header h1 {
-
     margin-bottom: 10px;
-
     font-size: 42px;
 }
 
-
 .header p {
-
     margin: 0;
-
     color: #6b7280;
-
     font-size: 17px;
 }
 
+.brand-logo {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
 
 /* ============================================================
-   CARD
+   TARJETAS
    ============================================================ */
 
 .card {
-
     background: white;
-
     border-radius: 12px;
-
     padding: 25px;
-
     margin-bottom: 25px;
-
-    box-shadow:
-        0 4px 15px
-        rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
-
 
 .card h2,
 .card h3 {
-
     margin-top: 0;
 }
 
-
 .description {
-
     color: #6b7280;
+    line-height: 1.5;
 }
 
-
 /* ============================================================
-   UPLOAD
+   CARGA DE ARCHIVOS
    ============================================================ */
 
 .upload-container {
-
     margin: 25px 0;
 }
 
-
 input[type="file"] {
-
     width: 100%;
-
     padding: 15px;
-
-    border:
-        2px dashed #cbd5e1;
-
+    border: 2px dashed #cbd5e1;
     border-radius: 8px;
-
     background: #f8fafc;
-
     cursor: pointer;
 }
-
 
 /* ============================================================
    BOTONES
    ============================================================ */
 
 button {
-
     width: 100%;
-
     padding: 14px;
-
     border: none;
-
     border-radius: 8px;
-
     background: #2563eb;
-
     color: white;
-
     font-size: 16px;
-
     font-weight: bold;
-
     cursor: pointer;
 }
 
-
 button:hover {
-
     background: #1d4ed8;
 }
 
-
 button:disabled {
-
     background: #94a3b8;
-
     cursor: not-allowed;
 }
 
-
 /* ============================================================
-   STATUS
+   ESTADOS Y VISIBILIDAD
    ============================================================ */
 
 .status {
-
     margin-top: 15px;
-
     text-align: center;
-
     font-weight: bold;
 }
 
-
-/* ============================================================
-   RESULTADOS
-   ============================================================ */
-
 .hidden {
-
-    display: none;
+    display: none !important;
 }
-
 
 .results {
-
     margin-top: 30px;
 }
-
 
 /* ============================================================
    MÉTRICAS
    ============================================================ */
 
 .metrics {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
-
     margin-bottom: 25px;
 }
 
-
 .metric-card {
-
     background: white;
-
     border-radius: 12px;
-
     padding: 25px;
-
     text-align: center;
-
-    box-shadow:
-        0 4px 15px
-        rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
-
 .metric-title {
-
     display: block;
-
     color: #6b7280;
-
     margin-bottom: 10px;
 }
 
-
 .metric-card strong {
-
     font-size: 28px;
+    overflow-wrap: anywhere;
 }
 
-
 /* ============================================================
-   DISTRIBUCIÓN
+   DISTRIBUCIÓN DE PRIORIDADES
    ============================================================ */
 
 .distribution {
-
     display: flex;
-
     gap: 20px;
-
     flex-wrap: wrap;
 }
 
-
 .priority-item {
-
     flex: 1;
-
     min-width: 180px;
-
     padding: 20px;
-
     border-radius: 10px;
-
     background: #f8fafc;
-
     text-align: center;
 }
 
-
 .priority-item strong {
-
     display: block;
-
     font-size: 30px;
-
     margin-top: 8px;
 }
 
-
 /* ============================================================
-   TABLA
+   TABLAS
    ============================================================ */
 
 .table-container {
-
     overflow-x: auto;
 }
 
-
 table {
-
     width: 100%;
-
     border-collapse: collapse;
 }
 
-
 th,
 td {
-
     padding: 12px;
-
-    border-bottom:
-        1px solid #e5e7eb;
-
+    border-bottom: 1px solid #e5e7eb;
     text-align: left;
 }
 
-
 th {
-
     background: #f8fafc;
 }
 
-
 td {
-
     font-size: 14px;
 }
-
 
 /* ============================================================
    DESCARGA
    ============================================================ */
 
 .download-container {
-
     margin-bottom: 25px;
 }
 
-
 .download-button {
-
     display: block;
-
     width: 100%;
-
     padding: 14px;
-
     border-radius: 8px;
-
     background: #16a34a;
-
     color: white;
-
     text-align: center;
-
     text-decoration: none;
-
     font-size: 16px;
-
     font-weight: bold;
 }
 
-
 .download-button:hover {
-
     background: #15803d;
 }
 
+/* ============================================================
+   COMPARACIÓN EXPERIMENTAL DE ALGORITMOS
+   ============================================================ */
+
+.benchmark-card {
+    margin-top: 25px;
+}
+
+.benchmark-card > button {
+    margin-top: 12px;
+}
+
+.benchmark-summary {
+    display: grid;
+    grid-template-columns: minmax(220px, 360px);
+    margin: 22px 0;
+}
+
+.benchmark-summary .metric-card {
+    background: #eff6ff;
+}
+
+.benchmark-chart-container {
+    margin-top: 28px;
+}
+
+.benchmark-chart-container h4 {
+    margin-bottom: 8px;
+}
+
+.benchmark-chart {
+    display: grid;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.benchmark-chart-row {
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.benchmark-chart-heading {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.benchmark-bar-line {
+    display: grid;
+    grid-template-columns: 100px minmax(80px, 1fr) 100px;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+}
+
+.benchmark-bar-label,
+.benchmark-bar-value {
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.benchmark-bar-value {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.benchmark-bar-track {
+    height: 18px;
+    background: #f1f5f9;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.benchmark-bar {
+    height: 100%;
+    min-width: 0;
+    border-radius: 999px;
+    transition: width 250ms ease;
+}
+
+/* Merge Sort: azul */
+.benchmark-bar.merge {
+    background: #2563eb;
+}
+
+/* Bubble Sort: naranja */
+.benchmark-bar.bubble {
+    background: #f97316;
+}
+
+.benchmark-note {
+    margin-top: 18px;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
 
 /* ============================================================
-   RESPONSIVE
+   LEYENDA DE LA GRÁFICA DE TIEMPOS REALES
+   ============================================================ */
+
+.benchmark-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 18px 0;
+}
+
+.benchmark-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #4b5563;
+    font-size: 13px;
+}
+
+.benchmark-legend-color {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+}
+
+.benchmark-legend-color.merge {
+    background: #2563eb;
+}
+
+.benchmark-legend-color.bubble {
+    background: #f97316;
+}
+
+/* ============================================================
+   ANÁLISIS TEÓRICO DE COMPLEJIDAD
+   ============================================================ */
+
+.complexity-section {
+    margin-top: 25px;
+}
+
+.complexity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.complexity-card {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.complexity-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.complexity-card h4 {
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+
+.complexity-card p,
+.complexity-card li {
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.complexity-parameters {
+    padding-left: 22px;
+}
+
+.complexity-badge {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.complexity-badge.efficient {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.complexity-badge.quadratic {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.recurrence {
+    padding: 14px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 15px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.complexity-error {
+    color: #b91c1c;
+    font-weight: 700;
+}
+
+/* ============================================================
+   DISEÑO RESPONSIVE
    ============================================================ */
 
 @media (max-width: 768px) {
-
+    .container {
+        width: 94%;
+        padding: 24px 0;
+    }
 
     .metrics {
-
         grid-template-columns: 1fr;
-
     }
 
+    .complexity-grid {
+        grid-template-columns: 1fr;
+    }
 
     .header h1 {
-
         font-size: 32px;
-
     }
 
-}
+    .benchmark-bar-line {
+        grid-template-columns: 85px minmax(50px, 1fr);
+        gap: 8px;
+    }
 
-.brand-logo {
-    width: 280px;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px;
+    .benchmark-bar-value {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .card {
+        padding: 18px;
+    }
 }

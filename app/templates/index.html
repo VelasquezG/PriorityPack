@@ -2,41 +2,23 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link
         rel="stylesheet"
-        href="{{ url_for(
-            'static',
-            filename='css/styles.css'
-        ) }}"
+        href="{{ url_for('static', filename='css/styles.css') }}"
     >
-
+    <title>PriorityPack</title>
 </head>
 
-
 <body>
-
     <main class="container">
 
-
-        <!-- ==================================================
-             ENCABEZADO
-        =================================================== -->
-
+        <!-- ENCABEZADO -->
         <header class="header">
-
             <img
-                src="{{ url_for(
-                    'static',
-                    filename='images/prioritypack-logo.png'
-                ) }}"
+                src="{{ url_for('static', filename='images/prioritypack-logo.png') }}"
                 alt="PriorityPack"
                 class="brand-logo"
             >
@@ -45,38 +27,19 @@
                 Priorización algorítmica de paquetes
                 para optimizar el procesamiento de envíos.
             </p>
-
         </header>
 
-
-
-        <!-- ==================================================
-             CARGA DEL ARCHIVO
-        =================================================== -->
-
+        <!-- CARGA DEL ARCHIVO -->
         <section class="card">
-
-            <h2>
-                Cargar información de envíos
-            </h2>
-
+            <h2>Cargar información de envíos</h2>
 
             <p class="description">
-
                 Selecciona un archivo CSV con la información
                 de los envíos que deseas procesar.
-
             </p>
 
-
-            <form
-                id="uploadForm"
-                enctype="multipart/form-data"
-            >
-
-
+            <form id="uploadForm" enctype="multipart/form-data">
                 <div class="upload-container">
-
                     <input
                         type="file"
                         id="csvFile"
@@ -84,228 +47,166 @@
                         accept=".csv"
                         required
                     >
-
                 </div>
 
-
-                <button
-                    type="submit"
-                    id="processButton"
-                >
+                <button type="submit" id="processButton">
                     Generar priorización
                 </button>
-
-
             </form>
 
-
-            <div
-                id="status"
-                class="status"
-            ></div>
-
+            <div id="status" class="status" role="status"></div>
         </section>
 
+        <!-- RESULTADOS -->
+        <section id="results" class="results hidden">
+            <h2>Resultados del procesamiento</h2>
 
-
-        <!-- ==================================================
-             RESULTADOS
-        =================================================== -->
-
-        <section
-            id="results"
-            class="results hidden"
-        >
-
-
-            <h2>
-                Resultados del procesamiento
-            </h2>
-
-
-
-            <!-- ==================================================
-                 DESCARGA
-            =================================================== -->
-
+            <!-- DESCARGA -->
             <div class="download-container">
-
-                <a
-                    href="/download"
-                    class="download-button"
-                >
+                <a href="/download" class="download-button">
                     Descargar CSV priorizado
                 </a>
-
             </div>
 
-
-
-            <!-- ==================================================
-                 MÉTRICAS
-            =================================================== -->
-
+            <!-- MÉTRICAS -->
             <div class="metrics">
-
-
                 <div class="metric-card">
-
-                    <span class="metric-title">
-                        Total de envíos
-                    </span>
-
-
-                    <strong id="totalShipments">
-                        -
-                    </strong>
-
+                    <span class="metric-title">Total de envíos</span>
+                    <strong id="totalShipments">-</strong>
                 </div>
 
-
-
                 <div class="metric-card">
-
-                    <span class="metric-title">
-                        Cálculo de prioridad
-                    </span>
-
-
-                    <strong id="priorityTime">
-                        -
-                    </strong>
-
+                    <span class="metric-title">Cálculo de prioridad</span>
+                    <strong id="priorityTime">-</strong>
                 </div>
 
-
-
                 <div class="metric-card">
-
-                    <span class="metric-title">
-                        Merge Sort
-                    </span>
-
-
-                    <strong id="mergeTime">
-                        -
-                    </strong>
-
+                    <span class="metric-title">Merge Sort</span>
+                    <strong id="mergeTime">-</strong>
                 </div>
-
-
             </div>
 
-
-
-            <!-- ==================================================
-                 DISTRIBUCIÓN
-            =================================================== -->
-
+            <!-- DISTRIBUCIÓN -->
             <div class="card">
-
-
-                <h3>
-                    Distribución de prioridades
-                </h3>
-
-
-                <div
-                    id="priorityDistribution"
-                    class="distribution"
-                ></div>
-
-
+                <h3>Distribución de prioridades</h3>
+                <div id="priorityDistribution" class="distribution"></div>
             </div>
 
-
-
-            <!-- ==================================================
-                 TOP 10
-            =================================================== -->
-
+            <!-- TOP 10 -->
             <div class="card">
-
-
-                <h3>
-                    Envíos con mayor prioridad
-                </h3>
-
+                <h3>Envíos con mayor prioridad</h3>
 
                 <div class="table-container">
-
-
                     <table>
-
-
                         <thead>
-
                             <tr>
-
-                                <th>
-                                    Order ID
-                                </th>
-
-                                <th>
-                                    Score
-                                </th>
-
-                                <th>
-                                    Prioridad
-                                </th>
-
-                                <th>
-                                    Tráfico
-                                </th>
-
-                                <th>
-                                    Clima
-                                </th>
-
-                                <th>
-                                    Área
-                                </th>
-
-                                <th>
-                                    Hora
-                                </th>
-
+                                <th>Order ID</th>
+                                <th>Score</th>
+                                <th>Prioridad</th>
+                                <th>Tráfico</th>
+                                <th>Clima</th>
+                                <th>Área</th>
+                                <th>Hora</th>
                             </tr>
-
                         </thead>
 
-
-                        <tbody
-                            id="shipmentsTable"
-                        ></tbody>
-
-
+                        <tbody id="shipmentsTable"></tbody>
                     </table>
-
-
                 </div>
-
-
             </div>
 
+            <!-- COMPARACIÓN EXPERIMENTAL -->
+            <section class="card benchmark-card" id="benchmarkSection">
+                <h3>Comparación de algoritmos</h3>
 
+                <p class="description">
+                    Compara el rendimiento de Merge Sort y Bubble Sort
+                    con distintos tamaños de entrada.
+                </p>
+
+                <button type="button" id="benchmarkButton">
+                    Comparar algoritmos
+                </button>
+
+                <div id="benchmarkStatus" class="status" role="status"></div>
+
+                <div id="benchmarkResults" class="hidden">
+                    <div class="benchmark-summary">
+                        <div class="metric-card">
+                            <span class="metric-title">
+                                Mejor aceleración observada
+                            </span>
+                            <strong id="benchmarkBestSpeedup">-</strong>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Registros</th>
+                                    <th>Merge Sort (s)</th>
+                                    <th>Bubble Sort (s)</th>
+                                    <th>Speedup</th>
+                                    <th>Merge correcto</th>
+                                    <th>Bubble correcto</th>
+                                </tr>
+                            </thead>
+                            <tbody id="benchmarkTable"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- GRÁFICA ÚNICA DE TIEMPOS REALES -->
+                    <div class="benchmark-chart-container">
+                        <h4>Comparación visual de tiempos reales</h4>
+
+                        <p class="description">
+                            Las barras comparan los tiempos de ejecución medidos
+                            de Merge Sort y Bubble Sort para cada tamaño de entrada.
+                        </p>
+
+                        <div class="benchmark-legend">
+                            <span class="benchmark-legend-item">
+                                <span class="benchmark-legend-color merge"></span>
+                                Merge Sort
+                            </span>
+
+                            <span class="benchmark-legend-item">
+                                <span class="benchmark-legend-color bubble"></span>
+                                Bubble Sort
+                            </span>
+                        </div>
+
+                        <div id="benchmarkChart" class="benchmark-chart"></div>
+                    </div>
+
+                    <p class="benchmark-note">
+                        Los tiempos dependen del equipo y de las condiciones
+                        de ejecución. Los resultados son experimentales y no
+                        representan una garantía universal de rendimiento.
+                    </p>
+                </div>
+            </section>
         </section>
 
+        <!-- ANÁLISIS TEÓRICO DE COMPLEJIDAD -->
+        <section class="card complexity-section" id="complexity-section">
+            <h2>Análisis teórico de complejidad</h2>
+
+            <p class="description">
+                Aplicación del Teorema Maestro y comparación de la eficiencia
+                teórica de los algoritmos de ordenamiento.
+            </p>
+
+            <div id="complexity-content" aria-live="polite">
+                <p>Cargando análisis de complejidad...</p>
+            </div>
+        </section>
 
     </main>
 
-
-
-    <!-- ======================================================
-         JAVASCRIPT
-    ======================================================= -->
-
-    <script
-        src="{{ url_for(
-            'static',
-            filename='js/app.js'
-        ) }}"
-    ></script>
-
-
+    <!-- JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 
 </html>
